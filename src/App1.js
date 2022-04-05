@@ -3,17 +3,12 @@ import fakedate from './fakerdata.json';
 import './App1.css';
 import {useState} from "react";
 
-function VideoRow({ video }) {
+function VideoRow({ video ,isselected,onClick}) {
   
-  function handleRow(name){
-    
-    setisselected(name)    
 
-  }
-  const [isselected,setisselected]=useState("flase");
   const color = (isselected===video.name) ? {backgroundColor:"black"} : { backgroundColor:null}
   return (
-    <tr style={color} onClick={()=>handleClick(video.name)} >
+    <tr style={color}  onClick={()=>onClick()}>
       <td>{video.name}</td>
       <td>{video.year}</td>
       <td>{video.score}</td>
@@ -42,6 +37,11 @@ function VideoTableHeader() {
 }
 
 function VideoTable({ videos }) {
+  function handleClick(name){
+    
+    setselected(name)    
+
+  }
   const [selected,setselected]=useState(null);
 
 
@@ -50,7 +50,9 @@ function VideoTable({ videos }) {
     rows.push(
       <VideoRow
         video={video}
-        key={video.name} />
+        key={video.name} 
+        isselected={selected}
+        onClick={()=>handleClick(video.name)}/>
     )
   })
   return (
