@@ -1,0 +1,17 @@
+/* .Layout-main .Layout-sidebar {
+    width: 100% !important;
+    grid-column: 1 !important
+} */
+
+.Layout-sidebar {
+    float: right;
+    
+}
+
+.Layout-main {
+    float: left;
+   
+}
+.App {
+    text-align: center;
+  }
